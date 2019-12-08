@@ -1,0 +1,30 @@
+.die {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    border: 2px solid rgb(48, 48, 48);
+}
+
+.one {
+    background-image: url(/assets/images/dice_face_1.png);
+}
+
+.two {
+    background-image: url(/assets/images/dice_face_2.png);
+}
+
+.three {
+    background-image: url(/assets/images/dice_face_3.png);
+}
+
+.four {
+    background-image: url(/assets/images/dice_face_4.png);
+}
+
+.five {
+    background-image: url(/assets/images/dice_face_5.png);
+}
+
+.six {
+    background-image: url(/assets/images/dice_face_6.png);
+}
