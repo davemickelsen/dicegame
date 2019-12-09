@@ -1,47 +1,51 @@
+<div>
+    Round: {{ currentRound + 1 }}
+</div>
 <div class="game">
     <div class="player-box">
-        <div class="player-name" [ngClass]="{'has-turn' : player1.hasTurn}">{{ player1.name }}</div>
-        <div class="player-dice-box">
-            <div #player1D1Pos class="die-placeholder"></div>
-            <div #player1D2Pos class="die-placeholder"></div>
-            <div #player1D3Pos class="die-placeholder"></div>
-            <div #player1D4Pos class="die-placeholder"></div>
+        <div class="player-name" [class.has-turn]="player1.hasTurn">{{ player1.turnNumber }} - {{ player1.name }}</div>
+        <div id="{{ player1.diceContainer }}" class="player-dice-box">
+            <div *ngFor="let die of player1.diceList">
+                <app-die [dieValue]="die.faceValue"></app-die>
+            </div>
         </div>
+        <div>Score: {{ player1.totalScore }}</div>
     </div>
     <div class="middle-row">
         <div class="player-box">
-            <div class="player-name" [ngClass]="{'has-turn' : player2.hasTurn}">{{ player4.name }}</div>
-            <div class="player-dice-box">
-                <div #player4D1Pos class="die-placeholder"></div>
-                <div #player4D2Pos class="die-placeholder"></div>
-                <div #player4D3Pos class="die-placeholder"></div>
-                <div #player4D4Pos class="die-placeholder"></div>
+            <div class="player-name" [class.has-turn]="player4.hasTurn">{{ player4.turnNumber }} - {{ player4.name }}</div>
+            <div id="{{ player4.diceContainer }}" class="player-dice-box">
+                <div *ngFor="let die of player4.diceList">
+                    <app-die [dieValue]="die.faceValue"></app-die>
+                </div>
             </div>
+            <div>Score: {{ player4.totalScore }}</div>
         </div>
         <div class="game-table">
-            <div *ngFor="let die of diceList">
-                <app-die [dieValue]="die.value"></app-die>
+            <div *ngFor="let die of diceToRollList">
+                <app-die id="die{{die.id}}" [dieValue]="die.faceValue"></app-die>
             </div>
         </div>
         <div class="player-box">
-            <div class="player-name" [ngClass]="{'has-turn' : player2.hasTurn}">{{ player2.name }}</div>
-            <div class="player-dice-box">
-                <div #player2D1Pos class="die-placeholder"></div>
-                <div #player2D2Pos class="die-placeholder"></div>
-                <div #player2D3Pos class="die-placeholder"></div>
-                <div #player2D4Pos class="die-placeholder"></div>
+            <div class="player-name" [class.has-turn]="player2.hasTurn">{{ player2.turnNumber }} - {{ player2.name }}</div>
+            <div id="{{ player2.diceContainer }}" class="player-dice-box">
+                <div *ngFor="let die of player2.diceList">
+                    <app-die [dieValue]="die.faceValue"></app-die>
+                </div>
             </div>
+            <div>Score: {{ player2.totalScore }}</div>
         </div>
     </div>
     <div class="player-box">
-        <div class="player-name" [ngClass]="{'has-turn' : player2.hasTurn}">{{ player3.name }}</div>
-        <div class="player-dice-box">
-            <div #player3D1Pos class="die-placeholder"></div>
-            <div #player3D2Pos class="die-placeholder"></div>
-            <div #player3D3Pos class="die-placeholder"></div>
-            <div #player3D4Pos class="die-placeholder"></div>
+        <div class="player-name" [class.has-turn]="player3.hasTurn">{{ player3.turnNumber }} - {{ player3.name }}</div>
+        <div id="{{ player3.diceContainer }}" class="player-dice-box">
+            <div *ngFor="let die of player3.diceList">
+                <app-die [dieValue]="die.faceValue"></app-die>
+            </div>
         </div>
+        <div>Score: {{ player3.totalScore }}</div>
     </div>
 </div>
 
-<button (click)="rollDice()">Roll Dice</button>
+<button (click)="roll()">Roll Dice</button>
+<button (click)="startGame()">Start Game</button>

@@ -12,7 +12,6 @@ export class DieComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.dieValue.previousValue !== changes.dieValue.currentValue) {
-      console.log('Change detected:');
       this.setFaceValue();
     }
   }
