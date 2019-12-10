@@ -1,4 +1,8 @@
 <h1>Round: {{ currentRound + 1 }}</h1>
+<div class="winner-text">{{ winnerText }}</div>
+<div class="play-button-container">
+    <button *ngIf="!gameStarted" (click)="playGame()">Play Game</button>
+</div>
 <div class="game">
     <div class="player-box">
         <div class="player-name" [class.has-turn]="player1.hasTurn" [class.is-winner]="player1.isWinner">
@@ -52,5 +56,3 @@
         <div>Score: {{ player3.totalScore }}</div>
     </div>
 </div>
-
-<button (click)="playGame()">Start Game</button>

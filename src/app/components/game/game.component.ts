@@ -104,6 +104,8 @@ export class GameComponent implements OnInit {
 
   rounds: number = 4;
   currentRound: number = 0;
+  gameStarted: boolean = false;
+  winnerText: string = '';
 
   ngOnInit() {
     this.playerList = [
@@ -122,9 +124,12 @@ export class GameComponent implements OnInit {
   }
 
   playGame(): void {
+    this.gameStarted = true;
+    this.winnerText = '';
     this.playerList = _.shuffle(this.playerList);
     this.playerList.forEach((player, i) => {
       player.turnNumber = i + 1;
+      player.totalScore = 0;
     });
     this.currentPlayer = 0;
     this.setCurrentPlayer();
@@ -243,8 +248,11 @@ export class GameComponent implements OnInit {
     this.playerList.forEach((player) => {
       if (player.totalScore === this.playerList[0].totalScore) {
         player.isWinner = true;
+        this.winnerText += player.name + ' ';
       }
     });
+    this.winnerText += 'wins!';
+    this.gameStarted = false;
   }
 
   getRandomRange(min: number, max: number): number {
