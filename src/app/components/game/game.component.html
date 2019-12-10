@@ -4,7 +4,7 @@
         <div class="player-name" [class.has-turn]="player1.hasTurn" [class.is-winner]="player1.isWinner">
             {{ player1.turnNumber }} - {{ player1.name }}
         </div>
-        <div id="{{ player1.diceContainer }}" class="player-dice-box">
+        <div class="player-dice-box">
             <div *ngFor="let die of player1.diceList">
                 <app-die [dieValue]="die.faceValue"></app-die>
             </div>
@@ -16,7 +16,7 @@
             <div class="player-name" [class.has-turn]="player4.hasTurn" [class.is-winner]="player4.isWinner">
                 {{ player4.turnNumber }} - {{ player4.name }}
             </div>
-            <div id="{{ player4.diceContainer }}" class="player-dice-box">
+            <div class="player-dice-box">
                 <div *ngFor="let die of player4.diceList">
                     <app-die [dieValue]="die.faceValue"></app-die>
                 </div>
@@ -32,7 +32,7 @@
             <div class="player-name" [class.has-turn]="player2.hasTurn" [class.is-winner]="player2.isWinner">
                 {{ player2.turnNumber }} - {{ player2.name }}
             </div>
-            <div id="{{ player2.diceContainer }}" class="player-dice-box">
+            <div class="player-dice-box">
                 <div *ngFor="let die of player2.diceList">
                     <app-die [dieValue]="die.faceValue"></app-die>
                 </div>
@@ -44,7 +44,7 @@
         <div class="player-name" [class.has-turn]="player3.hasTurn" [class.is-winner]="player3.isWinner">
             {{ player3.turnNumber }} - {{ player3.name }}
         </div>
-        <div id="{{ player3.diceContainer }}" class="player-dice-box">
+        <div class="player-dice-box">
             <div *ngFor="let die of player3.diceList">
                 <app-die [dieValue]="die.faceValue"></app-die>
             </div>
