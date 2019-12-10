@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-die',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 export class DieComponent implements OnChanges {
 
   @Input() dieValue: number;
+  @Input() shake: boolean;
   dieClass: string;
 
   ngOnChanges(changes: SimpleChanges): void {
